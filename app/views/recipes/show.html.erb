@@ -1,0 +1,23 @@
+<h2><%= @recipe.name %>
+
+<% if @recipe.ingredients.any? %>
+  <h3>Here are the ingredients for this recipe:</h3>
+
+  <% @recipe.ingredients.each do |ingredient| %>
+    <ul>
+      <li>
+        <%= link_to recipe_ingredient_path(@recipe, ingredient) %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No ingredients have been published for this recipe!</p>
+<% end %>
+
+<p><%= link_to "Want to add an ingredient that's missing?", new_recipe_ingredient_path(@recipe) %></p>
+
+<p><%= link_to "Delete", recipe_path(@recipe),
+                              :data => {:confirm => "You sure?",
+                                        :method => "Delete"} %></p>  
+
+<p><%= link_to "Return to recipes", recipes_path%></p>

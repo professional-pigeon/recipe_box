@@ -1,0 +1,11 @@
+<h1>Fill out survey</h1>
+
+<%= render "layouts/errors", :object => @ingredient %>
+
+<%= form_for [@recipe, @ingredient] do |f| %>
+  <%= f.label :item %>
+  <%= f.text_field :item %>
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
+  <%= f.submit %>
+<% end %>

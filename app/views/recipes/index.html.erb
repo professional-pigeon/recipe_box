@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="jumbotron">
+  <h1>Welcome to Adrian, Dave, and Kyle's Chef's Corner</h1>
+  </div>
+
+  <% if @recipes.any? %>
+    <ul>
+      <% @recipes.each do |recipe| %>
+        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+      <% end%>
+    </ul>
+  <% else %>
+    <p>No recipes have been created yet</p>
+  <% end %>
+
+  <p><%= link_to "Add a Recipe", new_recipe_path %></p>
+  <a href="location location location">link to routes</a>
+</div>
