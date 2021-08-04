@@ -11,7 +11,7 @@ class IngredientsController < ApplicationController
     if @ingredient.save
       redirect_to recipe_path(@recipe)
     else
-      render :new
+      redirect_to recipe_path(@recipe)
     end
   end
 
@@ -47,6 +47,6 @@ class IngredientsController < ApplicationController
 
   private
     def ingredient_params
-      params.require(:ingredient).permit(:amount, :item)
+      params.require(:ingredient).permit(:item, :amount)
     end
 end
