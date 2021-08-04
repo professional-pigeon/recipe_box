@@ -2,5 +2,7 @@
 <%= form_for @recipe do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating, in: 1..5, step: 1 %>
   <%= f.submit %>
 <% end %>
