@@ -14,3 +14,23 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background: linear-gradient(144deg, rgb(217, 247, 217), rgb(247, 217, 118));
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position-y: bottom;
+  min-height: 100vh;
+  padding: 5em;
+}
+
+.jumbotron {
+  background: linear-gradient(144deg, rgb(247, 173, 247), rgb(217, 247, 217));
+  box-shadow: 0px 0px 10px black;
+}
+
+hr {
+  height: 0.5px;
+  background-color: black;
+  border: none;
+}

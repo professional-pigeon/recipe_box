@@ -1,0 +1,11 @@
+<h1>Fill out instructions</h1>
+
+<%= render "layouts/errors", :object => @recipe %>
+
+<%= form_for [@recipe, @instruction] do |f| %>
+  <%= f.label :step %>
+  <%= f.text_field :step %>
+  <%= f.label :direction %>
+  <%= f.text_area :direction %>
+  <%= f.submit %>
+<% end %>

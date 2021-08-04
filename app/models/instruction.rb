@@ -7,6 +7,6 @@ class Instruction < ApplicationRecord
 
   private
     def capitalize_instruction
-      self.item = self.item.capitalize
+      self.direction = self.direction.capitalize
     end
 end

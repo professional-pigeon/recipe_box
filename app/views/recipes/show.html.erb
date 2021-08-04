@@ -1,23 +1,52 @@
-<h2><%= @recipe.name %>
+<div class="container">
+  <h2><%= @recipe.name %></h2>
+  <h4>Here's how we rated it: <%= @recipe.rating%></h4>
+  <div class="row">
+    <div class="col-md-6">
+      <% if @recipe.ingredients.any? %>
+        <h3>Ingredients</h3>
+        <hr>
 
-<% if @recipe.ingredients.any? %>
-  <h3>Here are the ingredients for this recipe:</h3>
+        <% @recipe.ingredients.each do |ingredient| %>
+          <ul>
+            <li>
+              <%= link_to ingredient.item, recipe_ingredient_path(@recipe, ingredient) %> <%= ingredient.amount %>
+            </li>
+          </ul>
+        <% end %>
+      <% else %>
+        <p>No ingredients have been published for this recipe!</p>
+      <% end %>
 
-  <% @recipe.ingredients.each do |ingredient| %>
-    <ul>
-      <li>
-        <%= link_to ingredient.item, recipe_ingredient_path(@recipe, ingredient) %> <%= ingredient.amount %>
-      </li>
-    </ul>
-  <% end %>
-<% else %>
-  <p>No ingredients have been published for this recipe!</p>
-<% end %>
+      <% if @recipe.instructions.any? %>
+        <h3>Instructions</h3>
+        <hr>
+        <% @recipe.instructions.each do |instruction| %>
+          <ul>
+            <li>
+              <%= link_to instruction.step, recipe_instruction_path(@recipe, instruction) %>. <%= instruction.direction %>
+            </li>
+          </ul>
+        <% end %>
+      <% else %>
+        <p>No instructions have been published for this recipe!</p>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Edits</h4>
+            <p class="card-text"><%= link_to "Want to add an ingredient that's missing?", new_recipe_ingredient_path(@recipe) %></p>
 
-<p><%= link_to "Want to add an ingredient that's missing?", new_recipe_ingredient_path(@recipe) %></p>
+            <p class="card-text"><%= link_to "Want to add instructions that are missing?", new_recipe_instruction_path(@recipe) %></p>
 
-<p><%= link_to "Delete", recipe_path(@recipe),
-                              :data => {:confirm => "You sure?",
-                                        :method => "Delete"} %></p>  
+            <p class="card-text"><%= link_to "Delete", recipe_path(@recipe), :data => {:confirm => "You sure?", :method => "Delete"} %></p>
 
-<p><%= link_to "Return to recipes", recipes_path%></p>
+            <p class="card-text"><%= link_to "Edit Recipe Details", edit_recipe_path(@recipe)%>
+
+            <p class="card-text"><%= link_to "Return to recipes", recipes_path%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
