@@ -6,7 +6,7 @@
   <% if @recipes.any? %>
     <ul>
       <% @recipes.each do |recipe| %>
-        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+        <li><%= link_to recipe.name, recipe_path(recipe) %> - Rating: <%= recipe.rating %></li>
       <% end%>
     </ul>
   <% else %>
@@ -15,4 +15,5 @@
 
   <p><%= link_to "Add a Recipe", new_recipe_path %></p>
   <a href="location location location">link to routes</a>
+
 </div>

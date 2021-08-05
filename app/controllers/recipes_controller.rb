@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
-    @recipes.sort_by {|recipe| -recipe.rating }
+    # @recipes = @recipes.sort_by {|recipe, rating| rating <=> recipe}
+    @recipes = @recipes.sort_by {|recipe| -recipe.rating}
     render :index
   end
 

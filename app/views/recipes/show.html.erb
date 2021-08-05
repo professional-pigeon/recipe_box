@@ -31,21 +31,34 @@
       <% else %>
         <p>No instructions have been published for this recipe!</p>
       <% end %>
+
+      <% if @recipe.tags.any? %>
+        <h3>Tags</h3>
+        <hr>
+        <% @recipe.tags.each do |tag| %>
+          <ul>
+            <li>
+              <%= tag.category %> 
+            </li>
+          </ul>
+        <% end %>
+      <% else %>
+        <p>No tag(s) for this recipe!</p>
+      <% end %>
     </div>
     <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Edits</h4>
-            <p class="card-text"><%= link_to "Want to add an ingredient that's missing?", new_recipe_ingredient_path(@recipe) %></p>
-
-            <p class="card-text"><%= link_to "Want to add instructions that are missing?", new_recipe_instruction_path(@recipe) %></p>
-
-            <p class="card-text"><%= link_to "Delete", recipe_path(@recipe), :data => {:confirm => "You sure?", :method => "Delete"} %></p>
-
-            <p class="card-text"><%= link_to "Edit Recipe Details", edit_recipe_path(@recipe)%>
-
-            <p class="card-text"><%= link_to "Return to recipes", recipes_path%></p>
-        </div>
+      <div class="panel">
+        <%# <div class="panel-heading"> %>
+          <h4 class="panel-heading">Edits</h4>
+          <div class="panel-body">
+            <p><%= link_to "Want to add an ingredient that's missing?", new_recipe_ingredient_path(@recipe) %></p>
+            <p><%= link_to "Want to add instructions that are missing?", new_recipe_instruction_path(@recipe) %></p>
+            <p><%= link_to "Add a tag?", new_recipe_tag_path(@recipe) %></p>
+            <p><%= link_to "Delete", recipe_path(@recipe), :data => {:confirm => "You sure?", :method => "Delete"} %></p>
+            <p><%= link_to "Edit Recipe Details", edit_recipe_path(@recipe)%>
+            <p><%= link_to "Return to recipes", recipes_path%></p>
+          </div>
+        <%# </div> %>
       </div>
     </div>
   </div>

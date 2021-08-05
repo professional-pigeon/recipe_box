@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 2021_08_05_155054) do
   end
 
   create_table "recipes_tags", id: false, force: :cascade do |t|
-    t.bigint "tags_id"
-    t.bigint "recipes_id"
-    t.index ["recipes_id"], name: "index_recipes_tags_on_recipes_id"
-    t.index ["tags_id"], name: "index_recipes_tags_on_tags_id"
+    t.bigint "tag_id"
+    t.bigint "recipe_id"
+    t.index ["recipe_id"], name: "index_recipes_tags_on_recipe_id"
+    t.index ["tag_id"], name: "index_recipes_tags_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|

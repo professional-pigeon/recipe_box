@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
   has_many :instructions, dependent: :destroy
   has_and_belongs_to_many(:tags)
   validates :name, presence: true, uniqueness: {case_sensitive: false}
+  validates :rating, presence: true
   scope :tops, -> { where("rating > 3") }
   scope :food, ->(pass) { where("lower(name) LIKE ?", "%" + pass.downcase + "%") }
   

@@ -1,0 +1,9 @@
+<h1>Tag</h1>
+
+<%= render "layouts/errors", :object => @recipe %>
+
+<%= form_for [@recipe, @tag] do |f| %>
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+  <%= f.submit %>
+<% end %>
