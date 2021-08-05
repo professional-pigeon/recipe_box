@@ -1,4 +1,4 @@
-<p><%= link_to "Delete tag from recipe?", tag_path(@recipe.tags.delete(@tag)), :data => {:confirm => "You sure?", :method => "Delete"} %></p>
+<p><%= link_to "Delete tag from recipe?", recipe_tag_path(@recipe, @tag), :data => {:confirm => "You sure?", :method => "Delete"} %></p>
 
-<p><%= link_to "Delete tag from server?", tag_path(@tag), :data => {:confirm => "You sure?", :method => "Delete"} %></p>
+<p><%= link_to "Delete tag from server?", recipe_tag_path(@recipe, @tag), :data => {:confirm => "You sure?", :method => "Delete"} %></p>
 
