@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    @recipes.sort_by {|recipe| -recipe.rating }
     render :index
   end
 

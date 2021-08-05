@@ -1,4 +1,10 @@
 class TagsController < ApplicationController
+
+  def new
+  @recipe = Recipe.new
+    render :new
+  end
+
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @tag = @recipe.tags.new(tag_params)
