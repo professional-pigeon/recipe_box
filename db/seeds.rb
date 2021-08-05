@@ -21,9 +21,8 @@ Recipe.destroy_all
     Ingredient.create!(item: Faker::Food.ingredient,
                         amount: 1,
                         recipe_id: recipe.id)
-    tag = Tag.create!(category: Faker::FunnyName.name,
-                        recipe_id: recipe.tags << tag)
-                    # recipe.tags << tag
+    tag = Tag.create!(category: Faker::FunnyName.name)
+                    recipe.tags << tag
     int += 1
   end
 end
