@@ -9,6 +9,7 @@ class InstructionsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @instruction = @recipe.instructions.new(instruction_params)
     if @instruction.save
+      flash[:notice] = "Successfully created!"
       redirect_to recipe_path(@recipe)
     else
       redirect_to recipe_path(@recipe)

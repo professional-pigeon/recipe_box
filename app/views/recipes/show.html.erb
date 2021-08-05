@@ -38,7 +38,7 @@
         <% @recipe.tags.each do |tag| %>
           <ul>
             <li>
-              <%= tag.category %> 
+              <%= link_to tag.category, recipe_tag_path(@recipe, tag) %>
             </li>
           </ul>
         <% end %>
@@ -48,7 +48,6 @@
     </div>
     <div class="col-md-6">
       <div class="panel">
-        <%# <div class="panel-heading"> %>
           <h4 class="panel-heading">Edits</h4>
           <div class="panel-body">
             <p><%= link_to "Want to add an ingredient that's missing?", new_recipe_ingredient_path(@recipe) %></p>
@@ -58,7 +57,6 @@
             <p><%= link_to "Edit Recipe Details", edit_recipe_path(@recipe)%>
             <p><%= link_to "Return to recipes", recipes_path%></p>
           </div>
-        <%# </div> %>
       </div>
     </div>
   </div>
